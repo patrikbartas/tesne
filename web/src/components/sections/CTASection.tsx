@@ -17,16 +17,16 @@ export const CTASection = () => {
         className="z-10 max-w-2xl"
       >
         <h2 className="text-4xl md:text-6xl font-bold mb-6 text-neutral-900 dark:text-white">
-          Fáza 1 je pripravená.
+          Z konceptu do reality.
         </h2>
         <p className="text-xl text-neutral-600 dark:text-neutral-400 mb-12">
-          Máme MVP dizajn a architektúru. Hľadáme partnerov pre vývoj, 
-          výrobu PCB a 3D tlač. Pridaj sa k vývoju open-source 
-          zariadenia, ktoré zlepší bezpečnosť na cestách.
+          Hardvérová architektúra a dizajn MVP sú hotové. Teraz hľadáme inžinierov, vývojárov 
+          a partnerov na výrobu PCB či 3D tlač. Pridaj sa k vývoju tohto open-source projektu 
+          a poďme spoločne urobiť cesty bezpečnejšími.
         </p>
         
         <a href="mailto:patrik.bartas@gmail.com" className="group relative inline-flex h-14 items-center justify-center overflow-hidden rounded-[10px] bg-neutral-900 dark:bg-white px-8 font-medium text-white dark:text-black transition-all hover:scale-105 active:scale-95">
-          <span className="mr-2 font-bold">Kontaktovať projekt Tesne</span>
+          <span className="mr-2 font-bold">Pridať sa k projektu Tesne</span>
           <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
         </a>
       </motion.div>

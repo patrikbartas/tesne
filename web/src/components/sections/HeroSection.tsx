@@ -15,11 +15,11 @@ export const HeroSection = () => {
       >
         <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 text-neutral-900 dark:text-white">
           <span className="text-red-500">1,5 metra.</span> <br />
-          Zákon alebo len ilúzia?
+          Zákon, alebo len ilúzia?
         </h1>
         <p className="text-xl md:text-2xl text-neutral-600 dark:text-neutral-400 mb-10 leading-relaxed">
-          Zariadenie, ktoré mení pocit nebezpečenstva na exaktné dáta. 
-          Smart gadget pre cyklistov.
+          Zmerajte si skutočný bočný odstup áut pri predbiehaní. <br className="hidden md:block"/>
+          Smart radar, ktorý mení subjektívny pocit strachu na nespochybniteľné dáta.
         </p>
         
         <motion.div 
