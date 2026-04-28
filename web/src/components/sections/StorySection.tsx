@@ -3,7 +3,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useState } from "react";
 import Image from "next/image";
-import carSvg from "../../../../public/car.svg";
+import carSvg from "../../../public/car.svg";
 
 export const StorySection = () => {
   const containerRef = useRef<HTMLDivElement>(null);
