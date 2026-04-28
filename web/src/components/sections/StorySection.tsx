@@ -2,6 +2,7 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useState } from "react";
+import Image from "next/image";
 
 export const StorySection = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -224,11 +225,13 @@ export const StorySection = () => {
             style={{ y: carY }}
             className="absolute z-20 left-[-100px] top-1/2 -translate-y-1/2 w-[350px] flex items-center justify-center pointer-events-none"
           >
-            <img 
+            {/* Využívame Next.js Image komponent pre bezpečný export na GitHub Pages */}
+            <Image 
               src="/car.svg" 
               alt="Auto" 
-              // dark:invert urobí SVG biele v tmavom režime, inak je čierne
-              className="w-full h-auto dark:invert opacity-90 transition-all duration-300"
+              width={350}
+              height={820}
+              className="w-full h-auto dark:invert opacity-90 transition-all duration-300 drop-shadow-[0_0_20px_rgba(0,0,0,1)]"
             />
           </motion.div>
 
