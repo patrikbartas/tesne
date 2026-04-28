@@ -230,7 +230,7 @@ export const StorySection = () => {
             <Image 
               src={carSvg} 
               alt="Auto" 
-              className="w-full h-auto dark:invert opacity-90 transition-all duration-300 drop-shadow-2xl"
+              className="w-full h-auto dark:invert opacity-90 transition-all duration-300"
             />
           </motion.div>
 
