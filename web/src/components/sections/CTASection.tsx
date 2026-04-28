@@ -25,7 +25,7 @@ export const CTASection = () => {
           a poďme spoločne urobiť cesty bezpečnejšími.
         </p>
         
-        <a href="mailto:patrik.bartas@gmail.com" className="group relative inline-flex h-14 items-center justify-center overflow-hidden rounded-[10px] bg-neutral-900 dark:bg-white px-8 font-medium text-white dark:text-black transition-all hover:scale-105 active:scale-95">
+        <a href="mailto:patrik.bartas@gmail.com?subject=Chcem%20sa%20prida%C5%A5%20k%20tesne" className="group relative inline-flex h-14 items-center justify-center overflow-hidden rounded-[10px] bg-neutral-900 dark:bg-white px-8 font-medium text-white dark:text-black transition-all hover:scale-105 active:scale-95">
           <span className="mr-2 font-bold">Pridať sa k projektu Tesne</span>
           <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
         </a>

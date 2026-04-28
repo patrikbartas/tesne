@@ -38,7 +38,25 @@ export const StorySection = () => {
     carEnd: 0.95, // Auto zmizne zhora
 
     dbNotification: 0.882, // Notifikácia vyskočí ihneď po odchode auta
-    sceneFadeOut: 0.96, // Kedy všetko zmizne
+    sceneFadeOut: 0.975, // Kedy všetko zmizne
+  };
+
+  const getWindowOpacity = (
+    progress: number,
+    fadeInStart: number,
+    fullOpacityAt: number,
+    fadeOutStart: number,
+    zeroOpacityAt: number
+  ) => {
+    if (progress < fadeInStart) return 0;
+    if (progress < fullOpacityAt) {
+      return (progress - fadeInStart) / (fullOpacityAt - fadeInStart);
+    }
+    if (progress <= fadeOutStart) return 1;
+    if (progress < zeroOpacityAt) {
+      return 1 - (progress - fadeOutStart) / (zeroOpacityAt - fadeOutStart);
+    }
+    return 0;
   };
 
   // --- 1. Senzor ---
@@ -52,7 +70,11 @@ export const StorySection = () => {
     [TIMING.monopoleIn, TIMING.monopoleSettle, TIMING.monopoleOut],
     [1, 1.08, 1]
   );
-  const text1Opacity = useTransform(scrollYProgress, [TIMING.sensorIn, 0.1, 0.15, 0.2], [0, 1, 1, 0]);
+  const text1Opacity = useTransform(scrollYProgress, (progress) => {
+    if (progress <= 0.15) return 1;
+    if (progress < 0.2) return 1 - (progress - 0.15) / 0.05;
+    return 0;
+  });
 
   // --- 2. Riadidlá a Displej ---
   const handlebarsX = useTransform(
@@ -72,7 +94,9 @@ export const StorySection = () => {
     [0.22, TIMING.handlebarsIn, TIMING.sceneFadeOut, 1.0],
     [0, 1, 1, 0]
   );
-  const text2Opacity = useTransform(scrollYProgress, [0.3, 0.35, 0.37, 0.395], [0, 1, 1, 0]);
+  const text2Opacity = useTransform(scrollYProgress, (progress) =>
+    getWindowOpacity(progress, 0.21, 0.26, 0.307, 0.342)
+  );
 
   // --- 2.5. Monopole / fit preview ---
   const monopoleY = useTransform(
@@ -80,12 +104,10 @@ export const StorySection = () => {
     [TIMING.monopoleIn, TIMING.monopoleSettle, TIMING.monopoleHold, TIMING.monopoleOut],
     ["260vh", "0vh", "0vh", "-140vh"]
   );
-  const textFitOpacity = useTransform(
-    scrollYProgress,
-    [TIMING.monopoleSettle, 0.43, 0.468, 0.478],
-    [0, 1, 1, 0]
+  const textFitOpacity = useTransform(scrollYProgress, (progress) =>
+    getWindowOpacity(progress, 0.405, 0.425, 0.463, 0.473)
   );
-  const monopoleOpacity = useTransform(scrollYProgress, [0.479, 0.494, 1.0], [1, 0, 0]);
+  const monopoleOpacity = useTransform(scrollYProgress, [0.476, 0.5, 1.0], [1, 0, 0]);
 
   // --- 3. Laserový lúč ---
   const beamOpacity = useTransform(
@@ -93,7 +115,9 @@ export const StorySection = () => {
     [TIMING.monopoleOut, TIMING.beamOut, TIMING.sceneFadeOut, 1.0],
     [0, 1, 1, 0]
   );
-  const text3Opacity = useTransform(scrollYProgress, [0.5, 0.55, 0.6, 0.65], [0, 1, 1, 0]);
+  const text3Opacity = useTransform(scrollYProgress, (progress) =>
+    getWindowOpacity(progress, 0.6, 0.65, 0.84, 0.88)
+  );
 
   // Namiesto šírky meníme umiestnenie jeho "ľavého okraja".
   // Mapujeme presnú topológiu auta podľa tvojich meraní (Hard skoky vs Smooth lineárne prechody):
@@ -171,10 +195,8 @@ export const StorySection = () => {
   );
 
   // --- 5. Uloženie dát ---
-  const dbNotificationOpacity = useTransform(
-    scrollYProgress,
-    [TIMING.dbNotification, TIMING.dbNotification + 0.008, 0.95, 0.98],
-    [0, 1, 1, 0]
+  const dbNotificationOpacity = useTransform(scrollYProgress, (progress) =>
+    getWindowOpacity(progress, 0.892, 0.9, 0.952, 0.972)
   );
   const sceneOpacity = useTransform(scrollYProgress, [TIMING.sceneFadeOut, 1.0], [1, 0]);
 

@@ -1,6 +1,8 @@
 import { Header } from "@/components/layout/Header";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { StorySection } from "@/components/sections/StorySection";
+import { AnalyticsSection } from "@/components/sections/AnalyticsSection";
+import { FAQSection } from "@/components/sections/FAQSection";
 import { CTASection } from "@/components/sections/CTASection";
 import { Footer } from "@/components/layout/Footer";
 
@@ -16,7 +18,13 @@ export default function Home() {
       {/* 2. Scrollytelling - Hlavný príbeh (Senzor -> Auto) */}
       <StorySection />
 
-      {/* 3. Záver a hľadanie partnerov */}
+      {/* 3. Náhľad analytickej aplikácie */}
+      <AnalyticsSection />
+
+      {/* 4. FAQ */}
+      <FAQSection />
+
+      {/* 5. Záver a hľadanie partnerov */}
       <CTASection />
 
       {/* Pätička */}
