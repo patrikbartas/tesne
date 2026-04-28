@@ -2,8 +2,8 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useState } from "react";
-import Image from "next/image";
-import carSvg from "../../../public/car.svg";
+
+const carSrc = process.env.NODE_ENV === "production" ? "/tesne/car.svg" : "/car.svg";
 
 export const StorySection = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -226,9 +226,8 @@ export const StorySection = () => {
             style={{ y: carY }}
             className="absolute z-20 left-[-100px] top-1/2 -translate-y-1/2 w-[350px] flex items-center justify-center pointer-events-none"
           >
-            {/* Využívame Next.js Image komponent pre bezpečný export na GitHub Pages */}
-            <Image 
-              src={carSvg} 
+            <img 
+              src={carSrc} 
               alt="Auto" 
               className="w-full h-auto dark:invert opacity-90 transition-all duration-300"
             />
